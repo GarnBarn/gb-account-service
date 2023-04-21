@@ -21,7 +21,7 @@ func NewAccountHandler(accountService service.AccountService) AccountHandler {
 }
 
 func (a *AccountHandler) GetAccount(c *gin.Context) {
-	uid := c.Query("uid")
+	uid := c.Query(httpserver.UserUidKey)
 	if uid == "" {
 		uid = c.GetHeader(httpserver.UserUidKey)
 	}
@@ -37,16 +37,5 @@ func (a *AccountHandler) GetAccount(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, account)
-}
-
-func (a *AccountHandler) CreateAccount(c *gin.Context) {
-	uid := c.GetHeader(httpserver.UserUidKey)
-	account, err := a.accountService.CreateUser(uid)
-	if err != nil {
-		logrus.Error(err)
-		c.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
-		return
-	}
 	c.JSON(http.StatusOK, account)
 }
