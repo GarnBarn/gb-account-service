@@ -65,7 +65,7 @@ func main() {
 		MaxAge: 12 * time.Hour,
 	}))
 
-	router := httpServer.Group("/api/v1/account")
+	router := httpServer.Group("/api/v1")
 	accountRouter := router.Group("/account")
 	accountRouter.GET("/", accountHandler.GetAccount)
 

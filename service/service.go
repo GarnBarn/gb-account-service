@@ -65,6 +65,6 @@ func (a *accountService) createAccount(uid string, auth *auth.Client, ctx contex
 		logrus.Error("Failed to create account, uid: ", uid, "  error: ", err)
 		return account, err
 	}
-	logrus.Infof("Create account successed")
+	logrus.Infof("Create account success")
 	return model.ToAccountPublic(accountPrivate, user.DisplayName, user.PhotoURL), nil
 }
