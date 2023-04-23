@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	firebase.google.com/go v3.13.0+incompatible
-	github.com/GarnBarn/common-go v0.6.2
+	github.com/GarnBarn/common-go v0.6.6
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-gonic/gin v1.9.0
 	github.com/joho/godotenv v1.5.1
